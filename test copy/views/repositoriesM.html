@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>面试官界面</title>
+    <link rel='stylesheet' href='../css/resp2.css' type="text/css"/>
+  </head>
+  <body>
+	  
+  <script>
+	  document.getElementById()
+  </script>	 
+   
+   
+   
+  <div class="top">   <!--     这个是顶部状态栏     -->
+     <div class="top1"></div>
+     <div class="top2">
+        <p>&nbsp &nbsp 欢迎用户: <%- user.name %>  </p>
+         
+     </div>
+  
+  </div>
+  
+  
+  <div class="respm_cont">
+    <h2><center>题库</center></h2>
+    <form >		 		
+        <h3><b>这里是面试官题库，可以在此邀请同学面试</b></h3>
+		
+		
+        <div class="choice">
+            <ul id="eventbox">
+				
+                <li id="e1"><a href="item_i.html">1.计算A+B的值</a></li>		         				
+                <li id="e2">2.计算A+B的值</li>				
+                <li id="e3">3.计算A+B的值</li>
+
+				
+                <li>如果之后面试官可以删除/修改题目，将题目做出超链接的形式</li>
+                <li>如果可以实现上述功能，面试官修改的页面和面试者在题库中做题的页面会一样吗？</li>
+            </ul>
+        </div>
+
+    </form>
+  </div>
+  
+  
+  
+   <div class="resp_user">
+	  <p>请输入想邀请的同学（邮箱id邀请）</p>
+	  <textarea id="add_content"  rows="2" cols="30" ></textarea>
+   </div>
+   
+   <div class="respm_blank"> </div>
+
+    <div class="respm_butt" align="center">
+	  <button class="respm_button3" ><span>邀请作答 </span></button>
+	  &nbsp; &nbsp; &nbsp;
+	  <button class="respm_button0" ><a href="/homeM/add"><span>添加题目 </span></a></button>
+	  &nbsp; &nbsp; &nbsp;
+	  <button class="respm_button1" ><a href="/homeM"><span>返回主页 </span></a></button>
+	  &nbsp; &nbsp; &nbsp;
+	  <button class="respm_button2" ><a href="/logout"><span>退出登录 </span></a></button>	
+	</div>
+  
+  
+  </body>
+</html>

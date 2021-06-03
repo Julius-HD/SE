@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>历史题目</title>
+	<link href="../css/user2.css" rel="stylesheet" type="text/css"  />
+	<link rel="stylesheet" href="../css/items.css">
+	<script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
+	<script src="../scripts/items.js"></script>
+</head>
+<body>
+
+   <div class="top">   <!--     这个是顶部状态栏     -->
+      <div class="top1"></div>
+      <div class="top2">
+         <p>&nbsp &nbsp 欢迎面试者: <%- user.name %>  </p>
+          
+      </div>
+   
+   </div>
+
+<div class="bottom"><!--     主体     -->
+	<div class="left"> <!--     这个是左边事物栏     -->
+
+		<script >          <!--     留言     -->
+
+		document.getElementById('add_button').observe('click', add());
+
+		function add() {
+
+			var Event = document.getElementById("add_content").value;
+			var flag = confirm("您确定添加留言吗？");
+
+			if (flag == true)
+			{
+				var Li = document.createElement("li");
+				var Input = document.createElement("input");
+				var Ul=document.getElementById("eventbox");
+				var cont=document.createTextNode(Event);
+				Input.setAttribute("type", "checkbox");
+				Li.appendChild(Input);
+				Li.appendChild(cont);
+				Ul.appendChild(Li);
+			}
+
+		}
+
+		function select_all() {
+			var Events = document.getElementsByTagName("input");
+			for (var k = 0; k < Events.length; k++){
+				Events[k].checked = true;
+			}
+
+		}
+
+
+		function remove() {
+			var Events = document.getElementsByTagName("input");
+			var count = 0;
+			for (var t = Events.length - 1, count = 0; t >= 0; t--) {
+				if (Events[t].checked) {
+					var flag = confirm("您确定删除该留言吗?");
+					count++;
+					break;
+				}
+			}
+			if (flag) {
+				for (var t = Events.length - 1; t >= 0; t--) {
+					if (Events[t].checked)
+					{
+						count++;
+						var x=Events[t].nextSibling;
+						Events[t].parentNode.removeChild(x);                    //文本
+						Events[t].parentNode.removeChild(Events[t]);            //复选框
+					}
+				}
+			}
+			else{
+				for (var t = Events.length - 1; t >= 0; t--)
+				{
+					Events[t].checked=false;	  //取消删除
+				}
+			}
+			if (count == 0)
+				alert("不能删除为空的留言！");
+		}
+
+		function cancel()
+		{
+			var Events = document.getElementsByTagName("input");
+			for (var t = 0; t < Events.length; t++)
+			{
+				Events[t].checked = false;
+			}
+		}
+
+		function remove_all() {
+
+			select_all();
+			remove();
+
+		}
+		</script>
+
+
+		<div id="to-do" class="content">
+			<br>
+			<h3><center>留言栏</center></h3>
+			<form action="base.php">		 	<!-- 返回服务器-->
+				<p></p>
+
+				<h4><b>历史留言记录:</b></h4>
+				<div class="choice">
+					<ul id="eventbox">
+						<li id="e1"><input type="checkbox"  id="event1"  value="你好" > 你好   </li>
+						<li id="e2"><input type="checkbox"  id="event2"  value="你是谁">你是谁    </li>
+						<li id="e3"><input type="checkbox"  id="event3"  value="你在干什么">你在干什么    </li>
+						<li id="e4"><input type="checkbox"  id="event4"  value="你为什么说这些"> 你为什么说这些            </li>
+						<li id="e5"><input type="checkbox"  id="event5"  value="我艹">我艹 </li>
+					</ul>
+				</div>
+
+
+				<p></p>
+				&nbsp  &nbsp <button type="button" style="width:100px;height:38px" id="Select_all"      onclick="select_all()"><b>Select all</b></button>
+				&nbsp  &nbsp <button type="button" style="width:100px;height:38px" id="Remove"          onclick="remove()"><b>Remove</b></button>
+				&nbsp  <button type="button" style="width:100px;height:38px" id="Remove_all"      onclick="remove_all()"><b>Remove all</b></button>
+
+
+				<br>
+				<br>
+				<center><textarea id="add_content"  rows="5" cols="40" ></textarea></center>
+				<p></p>
+				<center><button type="button" style="width:120px;height:48px" id="add_button"  onclick="add()"><b>输入</b></button></center>
+
+			</form>
+		</div>
+
+	</div>
+
+
+
+
+
+
+	<div class="right">  <!--     这个是右边工作栏     -->
+
+		<script>
+			document.getElementById('post_ans').observe('click', postAns());
+
+			function postAns() {
+
+				var Event2 = document.getElementById("post_ans").value;
+				var Flag = confirm("您确定提交答案吗？");
+
+				if (Flag == true)
+				{
+
+				}
+
+			}
+
+		</script>
+
+		<div class="timu">
+			<p> 题目描述 </p>
+			<p>          </p>       <!-- 在这里显示题目的具体信息-->
+		</div>
+
+		<div class="text">
+			<div class="do_text" id="header">选择语言
+			    <select class="language">
+			        <option>apex</option>
+			        <option>azcli</option>
+			        <option>bat</option>
+			        <option>c</option>
+			        <option>clojure</option>
+			        <option>coffeescript</option>
+			        <option>cpp</option>
+			        <option>csharp</option>
+			        <option>csp</option>
+			        <option>css</option>
+			        <option>dockerfile</option>
+			        <option>fsharp</option>
+			        <option>go</option>
+			        <option>graphql</option>
+			        <option>handlebars</option>
+			        <option>html</option>
+			        <option>ini</option>
+			        <option>java</option>
+			        <option selected>javascript</option>
+			        <option>json</option>
+			        <option>kotlin</option>
+			        <option>less</option>
+			        <option>lua</option>
+			        <option>markdown</option>
+			        <option>msdax</option>
+			        <option>mysql</option>
+			        <option>objective-c</option>
+			        <option>pascal</option>
+			        <option>perl</option>
+			        <option>pgsql</option>
+			        <option>php</option>
+			        <option>plaintext</option>
+			        <option>postiats</option>
+			        <option>powerquery</option>
+			        <option>powershell</option>
+			        <option>pug</option>
+			        <option>python</option>
+			        <option>r</option>
+			        <option>razor</option>
+			        <option>redis</option>
+			        <option>redshift</option>
+			        <option>ruby</option>
+			        <option>rust</option>
+			        <option>sb</option>
+			        <option>scheme</option>
+			        <option>scss</option>
+			        <option>shell</option>
+			        <option>sol</option>
+			        <option>sql</option>
+			        <option>st</option>
+			        <option>swift</option>
+			        <option>tcl</option>
+			        <option>typescript</option>
+			        <option>vb</option>
+			        <option>xml</option>
+			        <option>yaml</option>
+			    </select>
+			</div>
+			<br>	
+			
+			<div class="do_butt" align="center">
+			<button class="do_button1" ><a href="/home/repositories"><span>返回题库 </span></a></button>
+			
+			</div>		
+		</div>
+		<div id="root"></div>
+
+
+	</div>
+</div>	<!-- 主体的div-->
+
+
+
+
+</body>
+</html>

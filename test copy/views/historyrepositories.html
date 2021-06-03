@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>历史记录</title>
+    <link rel='stylesheet' href='../css/history.css' type="text/css"/>
+</head>
+<body>
+	
+<div class="top">   <!--     这个是顶部状态栏     -->
+     <div class="top1"></div>
+     <div class="top2">
+        <p>&nbsp &nbsp 欢迎面试官: <%- user.name %>  </p>
+         
+     </div>
+  
+  </div>	
+
+<div class="his_cont">
+    <h2><center>历史邀请题库</center></h2>
+    <form action="base.php">		 	<!-- 返回服务器-->
+        <p></p>
+
+        <h4><b>在这里，您可以看到历史面试者所做的题目：</b></h4>
+        <div class="choice">
+            <ul id="eventbox">
+                <li id="e1">被面试者：{username}，所做题目：<a href="./doltem.html">1.计算A+B的值</a></li>
+                <li id="e2">被面试者：{username}，所做题目：<a href="./doltem.html">2.计算A+B的值</a></li>
+                <li id="e3">被面试者：{username}，所做题目：<a href="./doltem.html">3.计算A+B的值</a></li>
+            </ul>
+        </div>
+
+    </form>
+
+
+<div class="his_blank"> </div>
+
+    <div class="his_cont" align="center">
+	  <button class="his_button1" ><a href="./homeM.html"><span>返回主页 </span></a></button>
+	  &nbsp; &nbsp; &nbsp;
+	  <button class="his_button2" ><a href="./logout.html"><span>退出登录 </span></a></button>	
+	</div>	
+	
+	
+</div>
+</body>
+</html>

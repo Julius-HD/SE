@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>面试者初始界面</title>
+    <link rel='stylesheet' href='css/home1.css' type="text/css"/>
+  </head>
+  
+  
+  <body>
+
+  <div class="top">   <!--     这个是顶部状态栏     -->
+     <div class="top1"></div>
+     <div class="top2">
+        <p>&nbsp &nbsp 欢迎用户: <%- user.name %>  </p>
+         
+     </div>
+  
+  </div>
+	
+  <div class="bottom">
+	 <p>   </p>
+    <div class="list" id="user_list">
+      <p><center>您收到来着面试官{uername}的邀请，题目链接为：<a href="/home/doItem">1.这是一个示例题目</a></center></p>      <!-- 这里实现链接-->
+    </div>
+	
+	<p>   </p>
+	<div class="home_butt" align="center">
+    <button class="home_button1" ><a href="home/repositories"><span>查看题库 </span></a></button>
+	&nbsp; &nbsp; &nbsp;
+	<button class="home_button2" ><a href="logout"><span>退出登录 </span></a></button>
+	</div>
+
+
+
+
+  </div>
+  </body>
+</html>

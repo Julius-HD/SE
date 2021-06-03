@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>面试者界面</title>
+    <link rel='stylesheet' href='../css/resp1.css' type="text/css"/>
+	
+  </head>
+  <body>
+
+    <div class="top">   <!--     这个是顶部状态栏     -->
+       <div class="top1"></div>
+       <div class="top2">
+          <p>&nbsp &nbsp 欢迎用户: <%- user.name %>  </p>
+           
+       </div>
+    
+    </div>
+  	
+	
+	<div class="resp_cont">			
+		
+      <h2><center>历史题库</center></h2>
+        <form >		 	
+        
+            <h4><b>这里是题库，选择你想做的题吧:</b></h4>   
+            <div class="choice">	            
+              <ul id="eventbox">
+                <li id="e1"><a href="/home/item_i">1.计算A+B的值</a></li>
+                <li id="e2"><a href="/home/item_i">2.计算A+B的值</a> </li>
+                <li id="e3"><a href="/home/item_i">3.计算A+B的值</a>  </li>
+              </ul>
+            </div>
+          
+        </form>
+
+		
+    </div>
+	
+	<div class="resp_blank"></div>
+	
+	
+	
+	<div class="resp_butt" align="center">
+	  <button class="resp_button1" ><a href="/home"><span>返回主页 </span></a></button>
+	  &nbsp; &nbsp; &nbsp;
+	  <button class="resp_button2" ><a href="/logout"><span>退出登录 </span></a></button>	
+	</div>
+	
+  </body>
+</html>
