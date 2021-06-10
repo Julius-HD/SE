@@ -6,9 +6,9 @@
   </head>
   <body>
 	  
-  <script>
+  <!-- <script>
 	  document.getElementById()
-  </script>	 
+  </script>	  -->
    
    
    
@@ -49,19 +49,46 @@
    <div class="resp_user">
 	  <p>请输入想邀请的同学（邮箱id邀请）</p>
 	  <textarea id="add_content"  rows="2" cols="30" ></textarea>
+    <p>请输入题目（已有题目中选择）</p>
+	  <textarea id="add_item"  rows="2" cols="30" ></textarea>
    </div>
    
    <div class="respm_blank"> </div>
 
     <div class="respm_butt" align="center">
-	  <button class="respm_button3" ><span>邀请作答 </span></button>
+	  <button class="respm_button3" id = "invite"><span>邀请作答 </span></button>
 	  &nbsp; &nbsp; &nbsp;
 	  <button class="respm_button0" ><a href="/homeM/add"><span>添加题目 </span></a></button>
 	  &nbsp; &nbsp; &nbsp;
 	  <button class="respm_button1" ><a href="/homeM"><span>返回主页 </span></a></button>
 	  &nbsp; &nbsp; &nbsp;
 	  <button class="respm_button2" ><a href="/logout"><span>退出登录 </span></a></button>	
-	</div>
+  </div>
+  
+  <script type="text/javascript" src="../javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="../javascripts/bootstrap.min.js"></script>
+  <script type="text/javascript">
+      $("#invite").click(function(){ 
+        var inviteName = $("#add_content").val();
+        var inviteItem = $("#add_item").val();
+        var data = {"uname":inviteName, "item":inviteItem};
+        $.ajax({ 
+          url:'repositoriesM',
+          type:'post',
+          data: data,
+          success: function(data,status){ 
+            if(status == 'success'){ 
+              alert("邀请成功")
+            }
+          },
+          error: function(data,status){ 
+            if(status == 'error'){ 
+              alert("邀请失败")
+            }
+          }
+        });
+      });
+    </script>
   
   
   </body>

@@ -1,4 +1,4 @@
-require.config({ paths: { 'vs': '../node_modules/monaco-editor/min/vs' } });
+require.config({ paths: { 'vs': '../min/vs' } });
 require(['vs/editor/editor.main'], function () {
 
     // 初始化变量
@@ -45,17 +45,27 @@ require(['vs/editor/editor.main'], function () {
         monaco.editor.setModelLanguage(window.monaco.editor.getModels()[0], languageSelected.value)
     }
 
-    // 新建 button
-    var btn = document.createElement("button");
-    btn.id = "show-content";
-    btn.innerHTML = "提交代码";
-    var header = document.getElementById("header");
-    header.appendChild(btn);
-
     // 点击 button 弹出编辑器内容
     document.getElementById("show-content").addEventListener("click", function () {
         // 获取编辑器内容
-        alert(editorArray[0].getValue());
+        var editor_con = editorArray[0].getValue();
+        $.ajax({
+            // url:'add',
+            // /homeM/add; homeM/add
+            type:'post',
+            data: {"content": editor_con},
+            success: function(data,status){ 
+                if(status == 'success'){ 
+                    alert("success");
+                }
+            },
+            error: function(data,status){ 
+                if(status == 'error'){ 
+                    alert("fail");
+                }
+            }
+        })
+        // alert(editorArray[0].getValue());
     });
 });
 

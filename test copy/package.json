@@ -13,6 +13,7 @@
     "ejs": "~2.3.1",
     "express": "~4.12.2",
     "express-session": "^1.17.2",
+    "fibers": "^5.0.0",
     "mongoose": "^5.12.11",
     "morgan": "~1.5.1",
     "multer": "^0.1.8",

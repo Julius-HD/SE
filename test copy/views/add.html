@@ -8,10 +8,6 @@
 
 <body>
 	
-<script>
-	document.getElementById().observe('click', );
-	function
-</script>
 
 
 
@@ -30,21 +26,52 @@
 
 <div class="add_cont">
     <p>请输入问题的题目：</p>
-	<textarea></textarea>
+	<textarea id="questitle"></textarea>
     <p>请输入问题的详细描述：</p>
-	<textarea></textarea>
+	<textarea id="question"></textarea>
+    <p>请输入答案</p>
+    <textarea id="answer"></textarea>
 </div>
 
 <div class="add_blank"> </div>
 
 <div class="add_butt" align="center">
 
-      <button class="add_button1" ><span>确认添加 </span></button>
+      <button type = "submit" class="add_button1" id="addM"><span>确认添加 </span></button>
 	  &nbsp; &nbsp; &nbsp;
-	  <button class="add_button2" ><a href="./repositoriesM.html"><span>返回题库 </span></a></button>
-
+	  <button class="add_button2" ><a href="/homeM/repositoriesM"><span>返回题库 </span></a></button>
 </div>
 
+<script type="text/javascript" src="../javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="../javascripts/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(function(){ 
+		$("#addM").click(function(){ 
+			var questitle=$("#questitle").val();
+            var question=$("#question").val();
+            var answer=$("#answer").val();
+            var item={"nt": questitle, "nq": question, "na": answer};
+            console.log(item);
+            $.ajax({
+                url:'add',
+                // /homeM/add; homeM/add
+				type:'post',
+				data: item,
+                success: function(data,status){ 
+					if(status == 'success'){ 
+                        //打印创建成功
+                        location.href = '/homeM';
+					}
+				},
+				error: function(data,status){ 
+					if(status == 'error'){ 
+                        //print(err)
+					}
+				}
+            })
+		});
+	});
+	</script>
 
 </body>
 </html>

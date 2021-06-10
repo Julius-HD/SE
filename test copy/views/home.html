@@ -24,6 +24,8 @@
     </div>
 	
 	<p>   </p>
+  <div class="home_butt" align="center">
+    <button id="get_invite" >查看面试信息</button>
 	<div class="home_butt" align="center">
     <button class="home_button1" ><a href="home/repositories"><span>查看题库 </span></a></button>
 	&nbsp; &nbsp; &nbsp;
@@ -34,5 +36,38 @@
 
 
   </div>
+  <script type="text/javascript" src="../javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="../javascripts/bootstrap.min.js"></script>
+  <script type="text/javascript">
+      $("#get_invite").click(function(){ 
+      //   var inviteName = $("#add_content").val();
+      //   var inviteItem = $("#add_item").val();
+      //   var data = {"uname":inviteName, "item":inviteItem};
+        $.ajax({ 
+          url:'home',
+          type:'post',
+          // data: data,
+          success: function(data,status){ 
+            if(status == 'success'){ 
+              alert("hr信息："+ data.hrId);
+      // 返回data的信息：
+      //         data={
+			// 	"userId": doc.userId,
+			// 	"hrId": doc.hrId,
+			// 	"itemTitle": doc.title,
+			// 	"itemQuestion": doc.question,
+			// 	"itemAnswer": doc.answer
+			// }
+            }
+          },
+          error: function(data,status){ 
+            if(status == 'error'){ 
+              alert("未接受到邀请")
+            }
+          }
+        });
+      });
+    </script>
+  
   </body>
 </html>

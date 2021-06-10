@@ -1,10 +1,11 @@
+
 module.exports = {
 	item: {
-		index: { type: Integer, required: true },
-		title: { type£ºString, required: true},
+		userId:{ type: String, required: true},
+		hrId:{ type: String, required: true},
+		title: { type: String, required: true},
 		question: { type: String, required: true },
-		exampleIn: { type: String, required: true },
-		exampleOut: { type: String, required: true},
-		answer: { type: String, required: true }
+		answer: {type: String, require:true},
+		ifUsed:{ type: String, required: true}
 	}
 }; 

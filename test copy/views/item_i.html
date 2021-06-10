@@ -5,7 +5,8 @@
 	<title>历史题目</title>
 	<link href="../css/user2.css" rel="stylesheet" type="text/css"  />
 	<link rel="stylesheet" href="../css/items.css">
-	<script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
+	<script type="text/javascript" src="../javascripts/jquery.min.js"></script>
+	<script src="../min/vs/loader.js"></script>
 	<script src="../scripts/items.js"></script>
 </head>
 <body>
@@ -226,8 +227,10 @@
 			        <option>vb</option>
 			        <option>xml</option>
 			        <option>yaml</option>
-			    </select>
+				</select>
+				<button id="show-content">提交代码</button>
 			</div>
+			<div id="root"></div>
 			<br>	
 			
 			<div class="do_butt" align="center">
@@ -235,7 +238,7 @@
 			
 			</div>		
 		</div>
-		<div id="root"></div>
+		
 
 
 	</div>

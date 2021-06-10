@@ -1,9 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var models = require("./models");
+var items = require("./items");
 
 for(var m in models){ 
 	mongoose.model(m,new Schema(models[m]));
+}
+for (var m in items){
+	mongoose.model(m,new Schema(items[m]));
 }
 
 module.exports = { 
