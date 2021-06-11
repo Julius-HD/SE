@@ -108,6 +108,7 @@
 		<div id="to-do" class="content">
 			<br>
 			<h3><center>留言栏</center></h3>
+			<button id="getInvite">获取面试信息</button>
 			<form action="base.php">		 	
 				<p></p>
 
@@ -248,5 +249,33 @@
 	</div>
 </div>	<!-- 主体的div-->
 </body>
-	
+<script type="text/javascript" src="../javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="../javascripts/bootstrap.min.js"></script>
+<script type="text/javascript">
+//   $("#getInvite").click(function(){ 
+    $.ajax({ 
+      url:'doItem',
+      type:'get',
+      // data: data,
+      success: function(data,status){ 
+        if(status == 'success'){ 
+          alert("hr信息："+ data.hrId);
+  // 返回data的信息：
+  //         data={
+		// 	"userId": doc.userId,
+		// 	"hrId": doc.hrId,
+		// 	"itemTitle": doc.title,
+		// 	"itemQuestion": doc.question,
+		// 	"itemAnswer": doc.answer
+		// }
+        }
+      },
+      error: function(data,status){ 
+        if(status == 'error'){ 
+          alert("未接受到邀请")
+        }
+      }
+    });
+//   });
+</script>
 </html>

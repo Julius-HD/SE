@@ -20,12 +20,11 @@
   <div class="bottom">
 	 <p>   </p>
     <div class="list" id="user_list">
-      <p><center>您收到来着面试官{uername}的邀请，题目链接为：<a href="/home/doItem">1.这是一个示例题目</a></center></p>      <!-- 这里实现链接-->
     </div>
 	
 	<p>   </p>
   <div class="home_butt" align="center">
-    <button id="get_invite" >查看面试信息</button>
+    <button id="get_invite" ><a href="home/doItem">查看面试信息</a></button>
 	<div class="home_butt" align="center">
     <button class="home_button1" ><a href="home/repositories"><span>查看题库 </span></a></button>
 	&nbsp; &nbsp; &nbsp;
@@ -39,34 +38,31 @@
   <script type="text/javascript" src="../javascripts/jquery.min.js"></script>
 	<script type="text/javascript" src="../javascripts/bootstrap.min.js"></script>
   <script type="text/javascript">
-      $("#get_invite").click(function(){ 
-      //   var inviteName = $("#add_content").val();
-      //   var inviteItem = $("#add_item").val();
-      //   var data = {"uname":inviteName, "item":inviteItem};
-        $.ajax({ 
-          url:'home',
-          type:'post',
-          // data: data,
-          success: function(data,status){ 
-            if(status == 'success'){ 
-              alert("hr信息："+ data.hrId);
-      // 返回data的信息：
-      //         data={
-			// 	"userId": doc.userId,
-			// 	"hrId": doc.hrId,
-			// 	"itemTitle": doc.title,
-			// 	"itemQuestion": doc.question,
-			// 	"itemAnswer": doc.answer
-			// }
-            }
-          },
-          error: function(data,status){ 
-            if(status == 'error'){ 
-              alert("未接受到邀请")
-            }
-          }
-        });
-      });
+      // $("#get_invite").click(function(){ 
+      //   $.ajax({ 
+      //     url:'home',
+      //     type:'post',
+      //     // data: data,
+      //     success: function(data,status){ 
+      //       if(status == 'success'){ 
+      //         alert("hr信息："+ data.hrId);
+      // // 返回data的信息：
+      // //         data={
+			// // 	"userId": doc.userId,
+			// // 	"hrId": doc.hrId,
+			// // 	"itemTitle": doc.title,
+			// // 	"itemQuestion": doc.question,
+			// // 	"itemAnswer": doc.answer
+			// // }
+      //       }
+      //     },
+      //     error: function(data,status){ 
+      //       if(status == 'error'){ 
+      //         alert("未接受到邀请")
+      //       }
+      //     }
+      //   });
+      // });
     </script>
   
   </body>

@@ -166,22 +166,34 @@ router.get("/homeM/add", function (req, res, next) {
 	// console.log(req.body);
 	var itdb = global.dbHandel.getModel('item');
 	// console.log(itdb);
-	itdb.create({ 							// 创建一组item对象置入items
-		userId:"null",
-		hrId:"null",
-		title: req.body.nt,
-		question: req.body.nq,
-		answer: req.body.na,
-		ifUsed:"0"
-	}, function (err, doc) {
-		if (err) {
+	itdb.findOne({'title':req.body.nt}, function(err, doc){
+		if (err){
 			res.send(500);
 			console.log(err);
-		} else {
-			req.session.error = '题目添加成功！';
-			res.send(200);
 		}
-	});
+		else if(doc){
+			res.send(500);
+		}
+		else{
+			itdb.create({ 							// 创建一组item对象置入items
+				userId:"null",
+				hrId:"null",
+				title: req.body.nt,
+				question: req.body.nq,
+				answer: req.body.na,
+				ifUsed:"0"
+			}, function (err, doc) {
+				if (err) {
+					res.send(500);
+					console.log(err);
+				} else {
+					req.session.error = '题目添加成功！';
+					res.send(200);
+				}
+			});
+		}
+	})
+
 });
 
 //修改题目
@@ -271,7 +283,7 @@ router.get("/home",function(req,res, next){
 	userId=req.session.user.name;
 	// console.log(req.session.user.name);
 	var itdb = global.dbHandel.getModel('item'); 
-	res.render("home",{title:'Home'});         //已登录则渲染home页面
+	res.render("home",{"title":"1"});         //已登录则渲染home页面
 	// next();
 }).post("/home", function(req,res){
 	itdb=global.dbHandel.getModel('item');
@@ -346,8 +358,33 @@ router.get("/home/doItem", function (req, res, next) {
 		res.redirect("/login");				//未登录则重定向到 /login 路径
 	}
 	res.render("doItem", { title: "do hr's items" });
+	itdb=global.dbHandel.getModel('item');
+	console.log(req.session.user.name);
+	uname=req.session.user.name;
+	itdb.findOne({"userId": uname}, function(err, doc){
+		if (err){
+			res.send(500);
+			console.log(err);
+		}
+		else if (!doc)
+		{
+			res.send(404);
+		}
+		else{
+			data={
+				"userId": doc.userId,
+				"hrId": doc.hrId,
+				"itemTitle": doc.title,
+				"itemQuestion": doc.question,
+				"itemAnswer": doc.answer
+			}
+			res.render("doItem",data);
+			// res.send(data);
+		}
+	})
+	// res.render("doItem", { title: "do hr's items" });
 }).post("/home/doItem", function(req,res){
-	console.log("收到doItem提交代码:"+req.body.content);
+
 });
 
 
